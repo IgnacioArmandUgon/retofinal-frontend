@@ -2,7 +2,7 @@ import React from "react";
 import { URL } from "../constantes";
 import { useState, useRef } from "react";
 
-const CrearFactura = () => {
+const FormFactura = () => {
   const clienteRef = useRef("");
   const empleadoRef = useRef("");
   const precioRef = useRef(0);
@@ -43,4 +43,4 @@ const CrearFactura = () => {
   };
 
 
-export default CrearFactura;
+export default FormFactura;
