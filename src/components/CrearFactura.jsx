@@ -25,14 +25,18 @@ const CrearFactura = () => {
   };
     return (
       <>
-        <form onSubmit={handleSubmit}>
+      <h3 className=" m-4">Registre sus facturas</h3>
+        <form className="form m-4"  onSubmit={handleSubmit}>
           <input type="text" ref={clienteRef} />
           <label>Nombre cliente</label>
+          <p></p>
           <input type="text" ref={empleadoRef} />
           <label>Nombre empleado</label>
+          <p></p>
           <input type="number" ref={precioRef} />
           <label>Precio total</label>
-          <button type="submit">Enviar</button>
+          <p></p>
+          <button className="btn btn-primary" type="submit">Enviar</button>
         </form>
       </>
     );
