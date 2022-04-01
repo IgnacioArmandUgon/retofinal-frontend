@@ -1,7 +1,7 @@
 import React from "react";
 import { URL } from "../constantes";
 import { useState, useRef } from "react";
-
+import NavForm from "./NavFrom";
 const FormVolante = () => {
   const proveedorRef = useRef("");
   const productosRef = useRef([{}]);
@@ -25,6 +25,7 @@ const FormVolante = () => {
   };
     return (
       <>
+      <NavForm/>
       <h3 className=" m-4">Registre sus volantes</h3>
         <form className="form m-4"  onSubmit={handleSubmit}>
           <input type="text" ref={proveedorRef} />

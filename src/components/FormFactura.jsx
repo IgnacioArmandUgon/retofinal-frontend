@@ -1,6 +1,7 @@
 import React from "react";
 import { URL } from "../constantes";
 import { useState, useRef } from "react";
+import NavForm from "./NavFrom";
 
 const FormFactura = () => {
   const clienteRef = useRef("");
@@ -25,6 +26,7 @@ const FormFactura = () => {
   };
     return (
       <>
+      <NavForm/>
       <h3 className=" m-4">Registre sus facturas</h3>
         <form className="form m-4"  onSubmit={handleSubmit}>
           <input type="text" ref={clienteRef} />

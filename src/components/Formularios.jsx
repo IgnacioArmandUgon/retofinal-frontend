@@ -2,18 +2,17 @@ import React from "react";
 import { URL } from "../constantes";
 import { useState, useEffect } from "react";
 import ListFacturas from "./ListFacturas";
-import NavHistorial from "./NavHistorial";
-
-const Historial = () => {
+import NavForm from "./NavFrom";
+const Formularios = () => {
  
   
 
   return (
     <>
-      <NavHistorial/>
-      <h2 className="m-4">Revise aquí su historial de actividades!</h2>
+      <NavForm/>
+      <h2 className="m-4">Registre aquí sus formularios!</h2>
     </>
   );
 };
 
-export default Historial;
+export default Formularios;
