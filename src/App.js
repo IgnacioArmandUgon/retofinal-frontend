@@ -15,6 +15,8 @@ function App() {
         <Route path="/formVolantes" element={<FormVolante/>}/>
         <Route path="/historial/facturas" element={<ListFacturas/>}/>
         <Route path="/historial/volantes" element={<ListVolantes/>}/>
+        <Route path="/form/factura" element={<ListFacturas/>}/>
+        <Route path="/form/volante" element={<ListVolantes/>}/>
       </Routes>
     </Router>
   );

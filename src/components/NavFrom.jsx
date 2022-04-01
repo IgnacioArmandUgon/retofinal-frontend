@@ -5,8 +5,8 @@ const NavForm = () => {
   return (
     <nav className='navbar'>
       <div className='d-flex flex-row'>
-        <Link className="nav-link" to="/crear/factura">Factura</Link>
-        <Link className='nav-link' to="/crear/volante">Volante</Link>
+        <Link className="nav-link" to="/form/factura">Factura</Link>
+        <Link className='nav-link' to="/form/volante">Volante</Link>
       </div>
        
        
