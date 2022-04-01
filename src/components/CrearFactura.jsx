@@ -1,26 +1,54 @@
-import React from 'react'
-import { URL } from '../constantes'
-import { useState, useEffect } from 'react';
+import React from "react";
+import { URL } from "../constantes";
+import { useState, useRef } from "react";
 
+const CrearFactura = () => {
+  //const [factura, setFactura] = useState({nombreCliente: "", empleadoQueAtendio: "", precioTotal: 0})
+  const clienteRef = useRef("");
+  const empleadoRef = useRef("");
+  const precioRef = useRef(0);
 
-const ListaFormularios = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
- 
-    
-  return (
-      <form>
-        <input type="text" />
-        <label htmlFor="">Nombre del cliente</label>
-        <input type="text" />
-        <label htmlFor="">Nombre del empleado</label>
-        <input type="text" />
-        <label htmlFor=""></label>
-        <input type="text" />
-        <label htmlFor="">Nombre del cliente</label>
-        <input type="text" />
-        <label htmlFor="">Nombre del cliente</label>
-      </form>
-  )
-}
+    const request= {
+      nombreCliente: clienteRef.current.value,
+      empleadoQueAtendio: empleadoRef.current.value,
+      precioTotal: precioRef.current.value
+    }
 
-export default ListaFormularios
+    fetch(`${URL}/facturas`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(request),
+    })
+
+    return (
+      <>
+        <form onSubmit={(e) => handleSubmit()}>
+          <input
+            type="text"
+            ref={clienteRef}
+          />
+          <label>Nombre cliente</label>
+          <input
+            type="text"
+            ref={empleadoRef}
+          />
+          <label>Nombre empleado</label>
+          <input
+            type="number"
+            ref={precioRef}
+          />
+          <label>Precio total</label>
+          <input type="submit"/>
+        </form>
+      </>
+    );
+  };
+};
+
+export default CrearFactura;
