@@ -7,6 +7,7 @@ const Navbar = () => {
       <div className='d-flex flex-row'>
         <Link className="navbar-brand nav-link" to="/">Home</Link>
         <Link className="nav-link" to="/inventario">Inventario</Link>
+        <Link className='nav-link' to="/formVolantes">Crear volante</Link>
       </div>
        
        

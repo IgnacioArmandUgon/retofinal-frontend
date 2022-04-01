@@ -2,7 +2,7 @@ import React from "react";
 import { URL } from "../constantes";
 import { useState, useRef } from "react";
 
-const FormFactura = () => {
+const FormVolante = () => {
   const clienteRef = useRef("");
   const empleadoRef = useRef("");
   const precioRef = useRef(0);
@@ -10,7 +10,7 @@ const FormFactura = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`${URL}/facturas`, {
+    fetch(`${URL}/volantes`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -25,7 +25,7 @@ const FormFactura = () => {
   };
     return (
       <>
-      <h3 className=" m-4">Registre sus facturas</h3>
+      <h3 className=" m-4">Registre sus volantes</h3>
         <form className="form m-4"  onSubmit={handleSubmit}>
           <input type="text" ref={clienteRef} />
           <label>Nombre proveedor</label>
@@ -43,4 +43,4 @@ const FormFactura = () => {
   };
 
 
-export default FormFactura;
+export default FormVolante;
