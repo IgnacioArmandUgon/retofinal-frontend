@@ -11,7 +11,7 @@ const Historial = () => {
   return (
     <>
       <NavHistorial/>
-      <h2 className="m-4">Revise aquí su historial de actividades!</h2>
+      <h2 className="m-4 text-center">Revise aquí su historial de actividades!</h2>
     </>
   );
 };

@@ -10,7 +10,7 @@ const Formularios = () => {
   return (
     <>
       <NavForm/>
-      <h2 className="m-4">Registre aquí sus formularios!</h2>
+      <h2 className="m-4 text-center">Registre aquí sus formularios!</h2>
     </>
   );
 };

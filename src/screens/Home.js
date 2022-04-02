@@ -1,16 +1,24 @@
-import React from 'react'
+import React from "react";
 import firebaseApp from "../firebase/credenciales";
 import { getAuth, signOut } from "firebase/auth";
 const auth = getAuth(firebaseApp);
 
-
 const Home = () => {
   return (
-    <div>
-    <h1 className="text-center">Home</h1>
-    <button onClick={() => signOut(auth)}>Cerrar sesión</button>
+    <div className="containter ">
+      <div className="row justify-content-center ">
+        <h1 className="m-4 text-center">Bienvenido</h1>
+        <div className="form-group p-2 col-md-4 col-md-offset-5 align-center ">
+          <button
+            className="w-100 mt-2 btn btn-primary align-center"
+            onClick={() => signOut(auth)}
+          >
+            Cerrar sesión
+          </button>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

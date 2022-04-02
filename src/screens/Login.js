@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import firebaseApp from "../firebase/credenciales";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 const auth = getAuth(firebaseApp);
 
@@ -9,61 +13,77 @@ const Login = () => {
   const [isRegistrando, setIsRegistrando] = useState(false);
 
   async function registrarUsuario(email, password) {
-    console.log("entré a registrarUsuario")
+    console.log("entré a registrarUsuario");
     const infoUsuario = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     ).then((usuarioFirebase) => {
       return usuarioFirebase;
-    });
-    console.log("infoUsuario: "+infoUsuario);
+    })
+
+    console.log("infoUsuario: " + infoUsuario);
 
     const docuRef = doc(firestore, `usuario/${infoUsuario.user.uid}`);
-    console.log("creé el docuRef")
-    console.log(`usuario/${infoUsuario.user.uid}`)
+    console.log("creé el docuRef");
+    console.log(`usuario/${infoUsuario.user.uid}`);
 
-    setDoc(docuRef, { correo: email});
-    console.log("tiré el setDoc")
+    setDoc(docuRef, { correo: email });
+    console.log("tiré el setDoc");
   }
 
   function handleSubmit(e) {
-    console.log("recien entre al handleSubmit")
+    console.log("recien entre al handleSubmit");
     e.preventDefault();
-    console.log("prevent default")
+    console.log("prevent default");
     const email = e.target.elements.email.value;
-    console.log("creado email")
+    console.log("creado email");
     const password = e.target.elements.password.value;
-    console.log("creado password")
+    console.log("creado password");
 
     if (isRegistrando) {
-      console.log("entré al if de registrar")
+      console.log("entré al if de registrar");
       registrarUsuario(email, password);
-    }else{
-      console.log("entré al if de ingresar")
-        signInWithEmailAndPassword(auth, email, password)
+    } else {
+      console.log("entré al if de ingresar");
+      signInWithEmailAndPassword(auth, email, password).catch(window.alert("No existe esa cuenta"))
     }
   }
 
   return (
-    <div className="form-group" >
-      <h1 className="text-center"> {isRegistrando ? "Registrarse" : "Inicia sesión"}</h1>
-      <form  onSubmit={handleSubmit}>
-        <label>
-          Correo: <input className="form-control" type="email" id="email" />
-        </label>
-        <label>
-          Contraseña: <input className="form-control" type="password" id="password" />
-        </label>
-        <input
-          className="btn btn-secondary"
-          type="submit"
-          value={isRegistrando ? "Registrar" : "Iniciar sesión"}
-        />
-      </form>
-      <button className="btn btn-primary" onClick={() => setIsRegistrando(!isRegistrando)}>
-        {isRegistrando ? "Ya tengo una cuenta" : "Quiero registrarme"}
-      </button>
+    <div className="containter">
+      <div className="row justify-content-center">
+        <h1 className="m-4 text-center">
+          {" "}
+          {isRegistrando ? "Registrarse" : "Inicia sesión"}
+        </h1>
+        <form
+          className="form-group p-2 col-md-4 col-md-offset-5 align-center"
+          onSubmit={handleSubmit}
+        >
+          <label className="m-1 form-group">
+            Correo: <input className="form-control" type="email" id="email" />
+          </label>
+          <label className=" m-1 form-group">
+            Contraseña:{" "}
+            <input className="form-control" type="password" id="password" />
+          </label>
+          <p></p>
+          <input
+            className=" w-100 btn btn-secondary"
+            type="submit"
+            value={isRegistrando ? "Registrar" : "Iniciar sesión"}
+          />
+          <button
+            className="w-100 mt-2 btn btn-primary align-center"
+            onClick={() => setIsRegistrando(!isRegistrando)}
+          >
+            {isRegistrando ? "Ya tengo una cuenta" : "Registrarme"}
+          </button>
+          <p></p>
+        </form>
+        
+      </div>
     </div>
   );
 };

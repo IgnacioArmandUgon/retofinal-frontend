@@ -20,29 +20,39 @@ const FormFactura = () => {
       body: JSON.stringify({
         nombreCliente: clienteRef.current.value,
         empleadoQueAtendio: empleadoRef.current.value,
-        precioTotal: precioRef.current.value
+        precioTotal: precioRef.current.value,
       }),
     });
   };
-    return (
-      <>
-      <NavForm/>
-      <h3 className=" m-4">Registre sus facturas</h3>
-        <form className="form m-4"  onSubmit={handleSubmit}>
-          <input type="text" ref={clienteRef} />
-          <label>Nombre cliente</label>
-          <p></p>
-          <input type="text" ref={empleadoRef} />
-          <label>Nombre empleado</label>
-          <p></p>
-          <input type="number" ref={precioRef} />
-          <label>Precio total</label>
-          <p></p>
-          <button className="btn btn-primary" type="submit">Enviar</button>
-        </form>
-      </>
-    );
-  };
+  return (
+    <>
+      <NavForm />
+      <div className="containter ">
+        <div className="row justify-content-center ">
+          <h3 className=" m-4 text-center">Registre sus facturas</h3>
+          <form className="form-group p-2 col-md-4 col-md-offset-5 align-center " onSubmit={handleSubmit}>
+            <label className="m-1 form-group">
+              Nombre cliente <input type="text" ref={clienteRef} />
+            </label>
+            <p></p>
 
+            <label className="m-1 form-group">
+              Nombre empleado <input type="text" ref={empleadoRef} />
+            </label>
+            <p></p>
+
+            <label className="m-1 form-group">
+              Precio total <input type="number" ref={precioRef} />
+            </label>
+            <p></p>
+            <button className="btn btn-primary w-100" type="submit">
+              Enviar
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default FormFactura;
