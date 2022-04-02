@@ -46,21 +46,22 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <h1> {isRegistrando ? "Registrarse" : "Inicia sesión"}</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="form-group" >
+      <h1 className="text-center"> {isRegistrando ? "Registrarse" : "Inicia sesión"}</h1>
+      <form  onSubmit={handleSubmit}>
         <label>
-          Correo: <input type="email" id="email" />
+          Correo: <input className="form-control" type="email" id="email" />
         </label>
         <label>
-          Contraseña: <input type="password" id="password" />
+          Contraseña: <input className="form-control" type="password" id="password" />
         </label>
         <input
+          className="btn btn-secondary"
           type="submit"
           value={isRegistrando ? "Registrar" : "Iniciar sesión"}
         />
       </form>
-      <button onClick={() => setIsRegistrando(!isRegistrando)}>
+      <button className="btn btn-primary" onClick={() => setIsRegistrando(!isRegistrando)}>
         {isRegistrando ? "Ya tengo una cuenta" : "Quiero registrarme"}
       </button>
     </div>
