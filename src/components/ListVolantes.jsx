@@ -23,14 +23,14 @@ const ListVolantes = () => {
 
   return (
     <>
-    <NavHistorial/>
-      <h3 className="m-4">Lista de volantes</h3>
-      <div className="m-4">
+      <NavHistorial />
+      <h3 className="m-4 text-center">Lista de volantes</h3>
+      <div className="container">
         {volantes.map((volante) => (
-          <div key={volante.id} className="col mb-4">
+          <div key={volante.id} className="m-2 row justify-content-center">
             <div
               className="card m-t2 d-flex flex-row p-3"
-              style={{ maxWidth: "500px", minWidth: "250" }}
+              style={{ maxWidth: "500px", minWidth: "250", minHeight: "200px" }}
             >
               <div className="w-50">
                 <p>Nombre del proveedor: {volante.nombreProveedor}</p>
@@ -41,16 +41,16 @@ const ListVolantes = () => {
                 <ul>
                   {volante.productos ? (
                     volante.productos.map((producto) => (
-                      <li key={producto.id}>{producto.nombreProducto}</li>
+                      <li key={producto.id}>{producto.nombreProducto}: {producto.cantidad}</li>
                     ))
                   ) : (
                     <p></p>
                   )}
                 </ul>
               </div>
-              
+              <button className="btn btn-primary h-25" onClick={() => handleDelete(volante.id)}>Borrar</button>
             </div>
-            <button onClick={() => handleDelete(volante.id)}>Borrar</button>
+            
           </div>
         ))}
       </div>

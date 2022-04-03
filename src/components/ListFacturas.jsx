@@ -23,14 +23,14 @@ const ListFacturas = () => {
 
   return (
     <>
-    <NavHistorial/>
-      <h3 className="m-4">Lista de facturas</h3>
-      <div className="m-4">
+      <NavHistorial />
+      <h3 className="m-4 text-center">Lista de facturas</h3>
+      <div className="container">
         {facturas.map((factura) => (
-          <div key={factura.id} className="col mb-4">
+          <div key={factura.id} className="m-2 row justify-content-center">
             <div
               className="card m-t2 d-flex flex-row p-3"
-              style={{ maxWidth: "500px", minWidth: "250" }}
+              style={{ maxWidth: "500px", minWidth: "250", minHeight: "200px" }}
             >
               <div className="w-50">
                 <p>Nombre del cliente: {factura.nombreCliente}</p>
@@ -50,9 +50,9 @@ const ListFacturas = () => {
                   )}
                 </ul>
               </div>
-              
+              <button className="btn btn-primary h-25" onClick={() => handleDelete(factura.id)}>Borrar</button>
             </div>
-            <button onClick={() => handleDelete(factura.id)}>Borrar</button>
+            
           </div>
         ))}
       </div>
