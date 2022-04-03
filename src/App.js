@@ -12,6 +12,9 @@ import ListFacturas from "./components/ListFacturas";
 import ListVolantes from "./components/ListVolantes";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
+//redux
+import store from "./store"
+import { Provider } from "react-redux";
 
 import firebaseApp from "./firebase/credenciales";
 import { getAuth, onAuthStateChanged} from "firebase/auth"
@@ -24,11 +27,7 @@ console.log("Entré al app")
   onAuthStateChanged(auth, (usuarioFirebase) => {
     console.log("Entré al onAuthStateChanged")
     if(usuarioFirebase){
-      /* const userData = {
-        uid : usuarioFirebase.uid,
-        email: usuarioFirebase.email
-      } */
-      setUser(usuarioFirebase)//guardamos solo la info que estamos usando
+      setUser(usuarioFirebase)
     }else {
       setUser(null)
     }
@@ -37,6 +36,7 @@ console.log("Entré al app")
   
 
   return (
+    <Provider store={store}>
     <Router>
       <Navbar/>
       <Routes>
@@ -48,10 +48,9 @@ console.log("Entré al app")
         <Route path="/form/factura" element={<FormFactura/>}/>
         <Route path="/form/volante" element={<FormVolante/>}/>
         <Route path="/" element={user? <Home/>: <Login/>}/>
-        
       </Routes>
-      
     </Router>
+    </Provider>
   );
 }
 

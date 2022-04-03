@@ -32,14 +32,14 @@ const ListVolantes = () => {
               className="card m-t2 d-flex flex-row p-3"
               style={{ maxWidth: "500px", minWidth: "250", minHeight: "200px" }}
             >
-              <div className="w-50">
+              <div className="m-1 w-50">
                 <p>Nombre del proveedor: {volante.nombreProveedor}</p>
                 <p>Documento del proveedor: {volante.idProveedor}</p>
               </div>
-              <div className="w-50">
+              <div className="border m-1 w-50">
                 <p className="card-title">Productos</p>
                 <ul>
-                  {volante.productos ? (
+                  {volante.productos ? ( 
                     volante.productos.map((producto) => (
                       <li key={producto.id}>{producto.nombreProducto}: {producto.cantidad}</li>
                     ))

@@ -2,6 +2,8 @@ import React from "react";
 import { URL } from "../constantes";
 import { useState, useEffect } from "react";
 import NavHistorial from "./NavHistorial";
+import { Provider } from "react-redux";
+import store from "../store";
 
 const ListFacturas = () => {
   const [facturas, setFacturas] = useState([]); //array vacio para que el map no se detenga al detectar error
@@ -23,6 +25,7 @@ const ListFacturas = () => {
 
   return (
     <>
+    <Provider store={store}>
       <NavHistorial />
       <h3 className="m-4 text-center">Lista de facturas</h3>
       <div className="container">
@@ -32,13 +35,13 @@ const ListFacturas = () => {
               className="card m-t2 d-flex flex-row p-3"
               style={{ maxWidth: "500px", minWidth: "250", minHeight: "200px" }}
             >
-              <div className="w-50">
+              <div className="w-50 m-1">
                 <p>Nombre del cliente: {factura.nombreCliente}</p>
                 <p>Nombre del empleado: {factura.empleadoQueAtendio}</p>
                 <p>Precio total de la factura: {factura.precioTotal}</p>
                 <p>Nombre del fecha: {factura.fecha}</p>
               </div>
-              <div className="w-50">
+              <div className="border m-1 w-50">
                 <p className="card-title">Productos</p>
                 <ul>
                   {factura.comprados ? (
@@ -56,6 +59,7 @@ const ListFacturas = () => {
           </div>
         ))}
       </div>
+      </Provider>
     </>
   );
 };
