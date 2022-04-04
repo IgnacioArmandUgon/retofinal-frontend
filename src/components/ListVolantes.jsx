@@ -44,7 +44,7 @@ const ListVolantes = () => {
                       <li key={producto.id}>{producto.nombreProducto}: {producto.cantidad}</li>
                     ))
                   ) : (
-                    <p></p>
+                    <p>Que vacío!</p>
                   )}
                 </ul>
               </div>
@@ -52,7 +52,8 @@ const ListVolantes = () => {
             </div>
             
           </div>
-        ))}
+        )) }
+        <p className="text-muted text-center">{volantes.length===0? "En terminos de volantes tenemos 0 volantes":""}</p>
       </div>
     </>
   );

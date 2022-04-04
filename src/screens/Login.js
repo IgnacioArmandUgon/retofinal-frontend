@@ -46,7 +46,7 @@ const Login = () => {
       registrarUsuario(email, password);
     } else {
       console.log("entré al if de ingresar");
-      signInWithEmailAndPassword(auth, email, password).catch(window.alert("No existe esa cuenta"))
+      signInWithEmailAndPassword(auth, email, password)
     }
   }
 

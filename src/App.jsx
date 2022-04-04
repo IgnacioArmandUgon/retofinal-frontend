@@ -12,12 +12,15 @@ import ListFacturas from "./components/ListFacturas";
 import ListVolantes from "./components/ListVolantes";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
+
+
 //redux
 import store from "./store"
 import { Provider } from "react-redux";
 
 import firebaseApp from "./firebase/credenciales";
 import { getAuth, onAuthStateChanged} from "firebase/auth"
+
 const auth = getAuth(firebaseApp);
 
 function App() {

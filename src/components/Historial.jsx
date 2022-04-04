@@ -1,8 +1,6 @@
 import React from "react";
-import { URL } from "../constantes";
-import { useState, useEffect } from "react";
-import ListFacturas from "./ListFacturas";
 import NavHistorial from "./NavHistorial";
+import 'animate.css';
 
 const Historial = () => {
  
@@ -11,7 +9,7 @@ const Historial = () => {
   return (
     <>
       <NavHistorial/>
-      <h2 className="m-4 text-center">Revise aquí su historial de actividades!</h2>
+      <h2 className="m-4 text-center animate__animated animate__fadeInLeft animate__faster">Revise aquí su historial de actividades!</h2>
     </>
   );
 };

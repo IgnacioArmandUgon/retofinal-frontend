@@ -1,6 +1,6 @@
 import React from "react";
 import { URL } from "../constantes";
-import { useState, useRef } from "react";
+import {  useRef } from "react";
 import NavForm from "./NavFrom";
 const FormVolante = () => {
   const proveedorRef = useRef("");
@@ -52,7 +52,7 @@ const FormVolante = () => {
   return (
     <>
       <NavForm />
-      <div className="containter ">
+      <div className="containter m-2">
         <div className="row justify-content-center ">
           <h3 className=" m-4 text-center">Registre sus volantes</h3>
           <form
